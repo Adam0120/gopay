@@ -11,6 +11,7 @@ import (
 	"io"
 	"io/ioutil"
 	"mime/multipart"
+	"net"
 	"net/http"
 	"net/url"
 	"sort"
@@ -38,23 +39,35 @@ type Client struct {
 	err              error
 }
 
+var tclient = &Client{
+	HttpClient: &http.Client{
+		Timeout: 30 * time.Second,
+		Transport: &http.Transport{
+			MaxIdleConns:        2000,
+			MaxIdleConnsPerHost: 0,
+			MaxConnsPerHost:     0,
+			TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+			DialContext: (&net.Dialer{
+				Timeout:   30 * time.Second,
+				KeepAlive: 30 * time.Second,
+			}).DialContext,
+			ForceAttemptHTTP2:     true,
+			IdleConnTimeout:       300 * time.Second,
+			TLSHandshakeTimeout:   10 * time.Second,
+			ExpectContinueTimeout: 1 * time.Second,
+			DisableKeepAlives:     true,
+			Proxy:                 http.ProxyFromEnvironment,
+		},
+	},
+	Transport:     nil,
+	Header:        make(http.Header),
+	requestType:   TypeJSON,
+	unmarshalType: string(TypeJSON),
+}
+
 // NewClient , default tls.Config{InsecureSkipVerify: true}
 func NewClient() (client *Client) {
-	client = &Client{
-		HttpClient: &http.Client{
-			Timeout: 60 * time.Second,
-			Transport: &http.Transport{
-				TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
-				DisableKeepAlives: true,
-				Proxy:             http.ProxyFromEnvironment,
-			},
-		},
-		Transport:     nil,
-		Header:        make(http.Header),
-		requestType:   TypeJSON,
-		unmarshalType: string(TypeJSON),
-	}
-	return client
+	return tclient
 }
 
 func (c *Client) SetTransport(transport *http.Transport) (client *Client) {
