@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Adamxu0120/gopay"
+	"github.com/Adam0120/gopay"
 )
 
 // 预受理领卡请求API

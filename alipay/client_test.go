@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/alipay/cert"
-	"github.com/Adamxu0120/gopay/pkg/util"
-	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/alipay/cert"
+	"github.com/Adam0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/xlog"
 )
 
 var (

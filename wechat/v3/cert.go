@@ -15,14 +15,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/pkg/aes"
-	"github.com/Adamxu0120/gopay/pkg/errgroup"
-	"github.com/Adamxu0120/gopay/pkg/util"
-	"github.com/Adamxu0120/gopay/pkg/xhttp"
-	"github.com/Adamxu0120/gopay/pkg/xlog"
-	"github.com/Adamxu0120/gopay/pkg/xpem"
-	"github.com/Adamxu0120/gopay/pkg/xtime"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/pkg/aes"
+	"github.com/Adam0120/gopay/pkg/errgroup"
+	"github.com/Adam0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/xhttp"
+	"github.com/Adam0120/gopay/pkg/xlog"
+	"github.com/Adam0120/gopay/pkg/xpem"
+	"github.com/Adam0120/gopay/pkg/xtime"
 )
 
 // 获取微信平台证书公钥（获取后自行保存使用，如需定期刷新功能，自行实现）

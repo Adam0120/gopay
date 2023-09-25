@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/util"
 )
 
 type BodyMap map[string]interface{}

@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adam0120/gopay/pkg/xlog"
 )
 
 func TestBodyMap_CheckParamsNull(t *testing.T) {

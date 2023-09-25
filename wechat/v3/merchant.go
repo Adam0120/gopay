@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Adamxu0120/gopay"
+	"github.com/Adam0120/gopay"
 )
 
 // 查询特约商户账户实时余额、查询二级商户账户实时余额

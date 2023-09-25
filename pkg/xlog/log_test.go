@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/Adamxu0120/gopay/pkg/errgroup"
+	"github.com/Adam0120/gopay/pkg/errgroup"
 )
 
 func TestLog(t *testing.T) {

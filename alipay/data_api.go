@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Adamxu0120/gopay"
+	"github.com/Adam0120/gopay"
 )
 
 // Deprecated

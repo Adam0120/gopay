@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/alipay"
-	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/alipay"
+	"github.com/Adam0120/gopay/pkg/xlog"
 )
 
 func main() {

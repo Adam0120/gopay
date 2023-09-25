@@ -5,8 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/pkg/xhttp"
 )
 
 // 获取开放平台，access_token 返回结构体

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/util"
 )
 
 // 解析时间

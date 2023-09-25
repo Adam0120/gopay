@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Adamxu0120/gopay/pkg/jwt"
+	"github.com/Adam0120/gopay/pkg/jwt"
 )
 
 // rootPEM is from `openssl x509 -inform der -in AppleRootCA-G3.cer -out apple_root.pem`

@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/Adamxu0120/gopay"
+	"github.com/Adam0120/gopay"
 )
 
 // 订单附加信息提交（正式环境）

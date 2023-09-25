@@ -5,8 +5,8 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"github.com/Adamxu0120/gopay/pkg/util"
-	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adam0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/xlog"
 )
 
 func TestBodyMapSetBodyMap(t *testing.T) {

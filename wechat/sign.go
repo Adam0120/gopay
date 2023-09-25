@@ -13,8 +13,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/pkg/util"
 )
 
 // VerifySign 微信同步返回参数验签或异步通知参数验签

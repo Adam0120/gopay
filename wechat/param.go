@@ -15,9 +15,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/Adamxu0120/gopay"
-	"github.com/Adamxu0120/gopay/pkg/util"
-	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adam0120/gopay"
+	"github.com/Adam0120/gopay/pkg/util"
+	"github.com/Adam0120/gopay/pkg/xhttp"
 	"golang.org/x/crypto/pkcs12"
 )
 

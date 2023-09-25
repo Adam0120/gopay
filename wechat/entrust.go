@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/Adamxu0120/gopay"
+	"github.com/Adam0120/gopay"
 )
 
 // 公众号纯签约（正式）
