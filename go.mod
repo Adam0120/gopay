@@ -1,4 +1,4 @@
-module github.com/go-pay/gopay
+module github.com/Adam0120/gopay
 
 go 1.16
 
