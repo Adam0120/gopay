@@ -9,11 +9,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // 申请交易账单API
+//
 //	注意：如 bill_date 为空，默认查前一天的
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_6.shtml
@@ -50,6 +51,7 @@ func (c *ClientV3) V3BillTradeBill(ctx context.Context, bm gopay.BodyMap) (wxRsp
 }
 
 // 申请资金账单API
+//
 //	注意：如 bill_date 为空，默认查前一天的
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_7.shtml
@@ -86,6 +88,7 @@ func (c *ClientV3) V3BillFundFlowBill(ctx context.Context, bm gopay.BodyMap) (wx
 }
 
 // 申请特约商户资金账单API
+//
 //	注意：如 bill_date 为空，默认查前一天的
 //	Code = 0 is success
 //	文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/Offline/apis/chapter4_3_17.shtml
@@ -127,6 +130,7 @@ func (c *ClientV3) V3BillEcommerceFundFlowBill(ctx context.Context, bm gopay.Bod
 }
 
 // 申请单个子商户资金账单API
+//
 //	注意：如 bill_date 为空，默认查前一天的
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_12.shtml
@@ -162,6 +166,7 @@ func (c *ClientV3) V3BillSubFundFlowBill(ctx context.Context, bm gopay.BodyMap) 
 }
 
 // 下载账单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_8.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_8.shtml

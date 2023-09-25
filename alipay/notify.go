@@ -6,11 +6,12 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // 解析支付宝支付异步通知的参数到BodyMap
+//
 //	req：*http.Request
 //	返回参数bm：Notify请求的参数
 //	返回参数err：错误信息
@@ -30,6 +31,7 @@ func ParseNotifyToBodyMap(req *http.Request) (bm gopay.BodyMap, err error) {
 }
 
 // 通过 url.Values 解析支付宝支付异步通知的参数到BodyMap
+//
 //	value：url.Values
 //	返回参数notifyReq：Notify请求的参数
 //	返回参数err：错误信息
@@ -47,6 +49,7 @@ func ParseNotifyByURLValues(value url.Values) (bm gopay.BodyMap, err error) {
 // Deprecated
 // 推荐使用 ParseNotifyToBodyMap()，以防阿里云通知参数变动，NotifyRequest 无法解析。
 // 解析支付宝支付异步通知的参数到Struct
+//
 //	req：*http.Request
 //	返回参数notifyReq：Notify请求的参数
 //	返回参数err：错误信息

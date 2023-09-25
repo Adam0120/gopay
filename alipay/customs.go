@@ -5,12 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 // alipay.trade.customs.declare(统一收单报关接口)
+//
 //	文档地址：https://opendocs.alipay.com/apis/api_29/alipay.trade.customs.declare
 func (a *Client) TradeCustomsDeclare(ctx context.Context, bm gopay.BodyMap) (aliRsp *TradeCustomsDeclareRsp, err error) {
 	err = bm.CheckEmptyError("out_request_no", "trade_no", "merchant_customs_code", "merchant_customs_name", "amount", "customs_place")
@@ -34,6 +35,7 @@ func (a *Client) TradeCustomsDeclare(ctx context.Context, bm gopay.BodyMap) (ali
 }
 
 // alipay.acquire.customs(报关接口)
+//
 //	文档地址：https://opendocs.alipay.com/pre-open/01x3kh
 func (a *Client) AcquireCustoms(ctx context.Context, bm gopay.BodyMap) (aliRspBs []byte, err error) {
 	err = bm.CheckEmptyError("partner", "out_request_no", "trade_no", "merchant_customs_code", "amount", "customs_place", "merchant_customs_name")
@@ -48,6 +50,7 @@ func (a *Client) AcquireCustoms(ctx context.Context, bm gopay.BodyMap) (aliRspBs
 }
 
 // alipay.overseas.acquire.customs.query(报关查询接口)
+//
 //	文档地址：https://opendocs.alipay.com/pre-open/01x3ki
 func (a *Client) AcquireCustomsQuery(ctx context.Context, bm gopay.BodyMap) (aliRspBs []byte, err error) {
 	err = bm.CheckEmptyError("partner", "out_request_nos")

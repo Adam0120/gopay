@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 建立合作关系
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_5_1.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_5_1.shtml
@@ -36,6 +37,7 @@ func (c *ClientV3) V3PartnershipsBuild(ctx context.Context, idempotencyKey strin
 }
 
 // 终止合作关系
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_5_2.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_5_2.shtml
@@ -62,6 +64,7 @@ func (c *ClientV3) V3PartnershipsTerminate(ctx context.Context, idempotencyKey s
 }
 
 // 查询合作关系列表
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_5_3.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_5_3.shtml

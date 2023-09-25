@@ -7,12 +7,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
-	"github.com/go-pay/gopay/pkg/xpem"
-	"github.com/go-pay/gopay/pkg/xrsa"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay/pkg/xrsa"
 )
 
 type Client struct {
@@ -34,6 +34,7 @@ type Client struct {
 }
 
 // 初始化支付宝客户端
+//
 //	注意：如果使用支付宝公钥证书验签，请设置 支付宝根证书SN（client.SetAlipayRootCertSN()）、应用公钥证书SN（client.SetAppCertSN()）
 //	appid：应用ID
 //	privateKey：应用私钥，支持PKCS1和PKCS8
@@ -59,6 +60,7 @@ func NewClient(appid, privateKey string, isProd bool) (client *Client, err error
 }
 
 // 开启请求完自动验签功能（默认不开启，推荐开启，只支持证书模式）
+//
 //	注意：只支持证书模式
 //	alipayPublicKeyContent：支付宝公钥证书文件内容[]byte
 func (a *Client) AutoVerifySign(alipayPublicKeyContent []byte) {
@@ -73,6 +75,7 @@ func (a *Client) AutoVerifySign(alipayPublicKeyContent []byte) {
 }
 
 // Deprecated
+//
 //	推荐使用 PostAliPayAPISelfV2()
 //	示例：请参考 client_test.go 的 TestClient_PostAliPayAPISelf() 方法
 func (a *Client) PostAliPayAPISelf(ctx context.Context, bm gopay.BodyMap, method string, aliRsp interface{}) (err error) {
@@ -87,12 +90,14 @@ func (a *Client) PostAliPayAPISelf(ctx context.Context, bm gopay.BodyMap, method
 }
 
 // Deprecated
+//
 //	推荐使用 RequestParam()
 func (a *Client) GetRequestSignParam(bm gopay.BodyMap, method string) (string, error) {
 	return a.RequestParam(bm, method)
 }
 
 // RequestParam 获取支付宝完整请求参数包含签名
+//
 //	注意：biz_content 需要自行通过bm.SetBodyMap()设置，不设置则没有此参数
 func (a *Client) RequestParam(bm gopay.BodyMap, method string) (string, error) {
 	var (
@@ -129,6 +134,7 @@ func (a *Client) RequestParam(bm gopay.BodyMap, method string) (string, error) {
 }
 
 // PostAliPayAPISelfV2 支付宝接口自行实现方法
+//
 //	注意：biz_content 需要自行通过bm.SetBodyMap()设置，不设置则没有此参数
 //	示例：请参考 client_test.go 的 TestClient_PostAliPayAPISelfV2() 方法
 func (a *Client) PostAliPayAPISelfV2(ctx context.Context, bm gopay.BodyMap, method string, aliRsp interface{}) (err error) {

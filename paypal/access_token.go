@@ -6,12 +6,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 // 获取AccessToken（Get an access token）
+//
 //	文档：https://developer.paypal.com/docs/api/reference/get-an-access-token
 func (c *Client) GetAccessToken() (token *AccessToken, err error) {
 	var (

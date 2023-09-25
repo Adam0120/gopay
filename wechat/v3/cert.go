@@ -15,17 +15,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/aes"
-	"github.com/go-pay/gopay/pkg/errgroup"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
-	"github.com/go-pay/gopay/pkg/xpem"
-	"github.com/go-pay/gopay/pkg/xtime"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/aes"
+	"github.com/Adamxu0120/gopay/pkg/errgroup"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay/pkg/xtime"
 )
 
 // 获取微信平台证书公钥（获取后自行保存使用，如需定期刷新功能，自行实现）
+//
 //	注意事项
 //	如果自行实现验证平台签名逻辑的话，需要注意以下事项:
 //	  - 程序实现定期更新平台证书的逻辑，不要硬编码验证应答消息签名的平台证书
@@ -110,6 +111,7 @@ func GetPlatformCerts(ctx context.Context, mchid, apiV3Key, serialNo, privateKey
 }
 
 // 设置 微信支付平台证书 和 证书序列号
+//
 //	注意1：如已开启自动验签功能 client.AutoVerifySign()，无需再调用此方法设置
 //	注意2：请预先通过 wechat.GetPlatformCerts() 获取 微信平台公钥证书 和 证书序列号
 //	部分接口请求参数中敏感信息加密，使用此 微信支付平台公钥 和 证书序列号
@@ -186,6 +188,7 @@ func (c *ClientV3) GetAndSelectNewestCert() (cert, serialNo string, err error) {
 
 // 推荐直接使用 client.GetAndSelectNewestCert() 方法
 // 获取微信平台证书公钥（获取后自行保存使用，如需定期刷新功能，自行实现）
+//
 //	注意事项
 //	如果自行实现验证平台签名逻辑的话，需要注意以下事项:
 //	  - 程序实现定期更新平台证书的逻辑，不要硬编码验证应答消息签名的平台证书

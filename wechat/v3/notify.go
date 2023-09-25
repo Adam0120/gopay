@@ -9,8 +9,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 type Resource struct {
@@ -189,6 +189,7 @@ func V3ParseNotify(req *http.Request) (notifyReq *V3NotifyReq, err error) {
 }
 
 // Deprecated
+//
 //	推荐使用 VerifySignByPK()
 func (v *V3NotifyReq) VerifySign(wxPkContent string) (err error) {
 	if v.SignInfo != nil {
@@ -198,6 +199,7 @@ func (v *V3NotifyReq) VerifySign(wxPkContent string) (err error) {
 }
 
 // 异步通知验签
+//
 //	wxPublicKey：微信平台证书公钥内容，通过 client.WxPublicKey() 获取
 func (v *V3NotifyReq) VerifySignByPK(wxPublicKey *rsa.PublicKey) (err error) {
 	if v.SignInfo != nil {
@@ -311,6 +313,7 @@ func (v *V3NotifyReq) DecryptBusifavorCipherText(apiV3Key string) (result *V3Dec
 }
 
 // Deprecated
+//
 //	暂时不推荐此方法，请使用 wechat.V3ParseNotify()
 //	解析微信回调请求的参数到 gopay.BodyMap
 func V3ParseNotifyToBodyMap(req *http.Request) (bm gopay.BodyMap, err error) {

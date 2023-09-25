@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 创建订阅计划（CreateBillingPlan）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/subscriptions/v1/#plans_create
 func (c *Client) CreateBillingPlan(ctx context.Context, bm gopay.BodyMap) (ppRsp *CreateBillingRsp, err error) {

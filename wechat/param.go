@@ -15,15 +15,16 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
 	"golang.org/x/crypto/pkcs12"
 )
 
 type Country int
 
 // 设置支付国家（默认：中国国内）
+//
 //	根据支付地区情况设置国家
 //	country：<China：中国国内，China2：中国国内（冗灾方案），SoutheastAsia：东南亚，Other：其他国家>
 func (w *Client) SetCountry(country Country) (client *Client) {
@@ -45,6 +46,7 @@ func (w *Client) SetCountry(country Country) (client *Client) {
 }
 
 // 添加微信pem证书文件路径
+//
 //	certFilePath：apiclient_cert.pem 文件路径
 //	keyFilePath：apiclient_key.pem 文件路径
 func (w *Client) AddCertPemFilePath(certFilePath, keyFilePath string) (err error) {
@@ -52,12 +54,14 @@ func (w *Client) AddCertPemFilePath(certFilePath, keyFilePath string) (err error
 }
 
 // 添加微信pkcs12证书文件路径
+//
 //	pkcs12FilePath：apiclient_cert.p12 文件路径
 func (w *Client) AddCertPkcs12FilePath(pkcs12FilePath string) (err error) {
 	return w.addCertFileContentOrPath(nil, nil, pkcs12FilePath)
 }
 
 // 添加微信pem证书内容[]byte
+//
 //	certFileContent：apiclient_cert.pem 证书内容[]byte
 //	keyFileContent：apiclient_key.pem 证书内容[]byte
 func (w *Client) AddCertPemFileContent(certFileContent, keyFileContent []byte) (err error) {
@@ -65,12 +69,14 @@ func (w *Client) AddCertPemFileContent(certFileContent, keyFileContent []byte) (
 }
 
 // 添加微信pkcs12证书内容[]byte
+//
 //	p12FileContent：apiclient_cert.p12 证书内容[]byte
 func (w *Client) AddCertPkcs12FileContent(p12FileContent []byte) (err error) {
 	return w.addCertFileContentOrPath(nil, nil, p12FileContent)
 }
 
 // 添加微信证书文件 Path 路径或证书内容
+//
 //	注意：只传pem证书或只传pkcs12证书均可，无需3个证书全传
 func (w *Client) addCertFileContentOrPath(certFile, keyFile, pkcs12File interface{}) (err error) {
 	if err = checkCertFilePathOrContent(certFile, keyFile, pkcs12File); err != nil {

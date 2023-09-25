@@ -11,10 +11,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 创建批量支出（Create batch payout）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/payments.payouts-batch/v1/#payouts_post
 func (c *Client) CreateBatchPayout(ctx context.Context, bm gopay.BodyMap) (ppRsp *CreateBatchPayoutRsp, err error) {
@@ -40,6 +41,7 @@ func (c *Client) CreateBatchPayout(ctx context.Context, bm gopay.BodyMap) (ppRsp
 }
 
 // 批量支出详情（Show payout batch details）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/payments.payouts-batch/v1/#payouts_get
 func (c *Client) ShowPayoutBatchDetails(ctx context.Context, payoutBatchId string, bm gopay.BodyMap) (ppRsp *PayoutBatchDetailRsp, err error) {
@@ -66,6 +68,7 @@ func (c *Client) ShowPayoutBatchDetails(ctx context.Context, payoutBatchId strin
 }
 
 // 批量支出项目详情（Show Payout Item Details）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/payments.payouts-batch/v1/#payouts-item_get
 func (c Client) ShowPayoutItemDetails(ctx context.Context, payoutItemId string) (ppRsp *PayoutItemDetailRsp, err error) {
@@ -92,6 +95,7 @@ func (c Client) ShowPayoutItemDetails(ctx context.Context, payoutItemId string) 
 }
 
 // 取消批量支付中收款人无PayPal账号的项目（Cancel Unclaimed Payout Item）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/payments.payouts-batch/v1/#payouts-item_cancel
 func (c Client) CancelUnclaimedPayoutItem(ctx context.Context, payoutItemId string) (ppRsp *CancelUnclaimedPayoutItemRsp, err error) {

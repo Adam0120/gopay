@@ -5,14 +5,14 @@
 ### 微信、支付宝、PayPal、QQ 的 Golang 版本SDK
 
 [![Github](https://img.shields.io/github/followers/iGoogle-ink?label=Follow&style=social)](https://github.com/iGoogle-ink)
-[![Github](https://img.shields.io/github/forks/go-pay/gopay?label=Fork&style=social)](https://github.com/go-pay/gopay/fork)
+[![Github](https://img.shields.io/github/forks/go-pay/gopay?label=Fork&style=social)](https://github.com/Adamxu0120/gopay/fork)
 
 [![Golang](https://img.shields.io/badge/golang-1.16-brightgreen.svg)](https://golang.google.cn)
-[![GoDoc](https://img.shields.io/badge/doc-pkg.go.dev-informational.svg)](https://pkg.go.dev/github.com/go-pay/gopay)
+[![GoDoc](https://img.shields.io/badge/doc-pkg.go.dev-informational.svg)](https://pkg.go.dev/github.com/Adamxu0120/gopay)
 [![Drone CI](https://cloud.drone.io/api/badges/go-pay/gopay/status.svg)](https://cloud.drone.io/go-pay/gopay)
-[![GitHub Release](https://img.shields.io/github/v/release/go-pay/gopay)](https://github.com/go-pay/gopay/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/go-pay/gopay)](https://github.com/Adamxu0120/gopay/releases)
 [![License](https://img.shields.io/github/license/go-pay/gopay)](https://www.apache.org/licenses/LICENSE-2.0)
-[![GoDoc](https://tokei.rs/b1/github.com/go-pay/gopay?category=lines)](https://github.com/go-pay/gopay)
+[![GoDoc](https://tokei.rs/b1/github.com/Adamxu0120/gopay?category=lines)](https://github.com/Adamxu0120/gopay)
 
 ---
 
@@ -27,17 +27,17 @@
 # 一、安装
 
 ```bash
-go get -u github.com/go-pay/gopay
+go get -u github.com/Adamxu0120/gopay
 ```
 
 #### 查看 GoPay 版本
 
-  [版本更新记录](https://github.com/go-pay/gopay/blob/main/release_note.txt)
+  [版本更新记录](https://github.com/Adamxu0120/gopay/blob/main/release_note.txt)
 
 ```go
 import (
-    "github.com/go-pay/gopay"
-    "github.com/go-pay/gopay/pkg/xlog"
+    "github.com/Adamxu0120/gopay"
+    "github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 func main() {
@@ -53,11 +53,11 @@ func main() {
 
 > ### 点击查看不同支付方式的使用文档。方便的话，请留下您认可的小星星，十分感谢！
 
-* #### [Alipay](https://github.com/go-pay/gopay/blob/main/doc/alipay.md)
-* #### [Wechat](https://github.com/go-pay/gopay/blob/main/doc/wechat_v3.md)
-* #### [QQ](https://github.com/go-pay/gopay/blob/main/doc/qq.md)
-* #### [Paypal](https://github.com/go-pay/gopay/blob/main/doc/paypal.md)
-* #### [Apple](https://github.com/go-pay/gopay/blob/main/doc/apple.md)
+* #### [Alipay](https://github.com/Adamxu0120/gopay/blob/main/doc/alipay.md)
+* #### [Wechat](https://github.com/Adamxu0120/gopay/blob/main/doc/wechat_v3.md)
+* #### [QQ](https://github.com/Adamxu0120/gopay/blob/main/doc/qq.md)
+* #### [Paypal](https://github.com/Adamxu0120/gopay/blob/main/doc/paypal.md)
+* #### [Apple](https://github.com/Adamxu0120/gopay/blob/main/doc/apple.md)
 
 ---
 

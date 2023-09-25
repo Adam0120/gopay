@@ -3,7 +3,7 @@ package apple
 import (
 	"context"
 
-	"github.com/go-pay/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
 )
 
 const (
@@ -15,9 +15,10 @@ const (
 )
 
 // VerifyReceipt 请求APP Store 校验支付请求,实际测试时发现这个文档介绍的返回信息只有那个status==0表示成功可以用，其他的返回信息跟文档对不上
+//
 //	url：取 UrlProd 或 UrlSandbox
 //	pwd：苹果APP秘钥，https://help.apple.com/app-store-connect/#/devf341c0f01
-// 	文档：https://developer.apple.com/documentation/appstorereceipts/verifyreceipt
+//	文档：https://developer.apple.com/documentation/appstorereceipts/verifyreceipt
 func VerifyReceipt(ctx context.Context, url, pwd, receipt string) (*VerifyResponse, error) {
 	req := &VerifyRequest{Receipt: receipt, Password: pwd}
 	vr := new(VerifyResponse)

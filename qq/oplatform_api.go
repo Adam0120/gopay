@@ -5,8 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
 )
 
 // 获取开放平台，access_token 返回结构体
@@ -73,6 +73,7 @@ type UserInfo struct {
 // 注意此code会在10分钟内过期。
 // redirect_uri	必须	与上面一步中传入的redirect_uri保持一致。
 // fmt	可选	因历史原因，默认是x-www-form-urlencoded格式，如果填写json，则返回json格式
+//
 //	文档：https://wiki.connect.qq.com/%E4%BD%BF%E7%94%A8authorization_code%E8%8E%B7%E5%8F%96access_token#Step2.EF.BC.9A.E9.80.9A.E8.BF.87AuthorizationCode.E8.8E.B7.E5.8F.96AccessToken
 func GetAccessToken(ctx context.Context, appId, appSecret, code, redirectUri string) (accessToken *AccessToken, err error) {
 	accessToken = new(AccessToken)
@@ -86,6 +87,7 @@ func GetAccessToken(ctx context.Context, appId, appSecret, code, redirectUri str
 }
 
 // GetOpenId QQ开放平台：使用Access Token来获取用户的OpenID
+//
 //	accessToken：接口调用凭据
 //	openId：用户的OpenID
 //	oauthConsumerKey：AppID
@@ -112,6 +114,7 @@ func GetOpenId(ctx context.Context, accessToken string, lang ...string) (openid 
 }
 
 // GetUserInfo QQ开放平台：获取用户个人信息
+//
 //	accessToken：接口调用凭据
 //	openId：用户的OpenID
 //	oauthConsumerKey：AppID

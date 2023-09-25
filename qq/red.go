@@ -10,11 +10,12 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // SendCashRed 创建现金红包
+//
 //	// 注意：如已使用client.AddCertFilePath()添加过证书，参数certFilePath、keyFilePath、pkcs12FilePath全传 nil，否则，3证书Path均不可空
 //	文档：https://qpay.qq.com/buss/wiki/221/1220
 func (q *Client) SendCashRed(ctx context.Context, bm gopay.BodyMap, certFilePath, keyFilePath, pkcs12FilePath interface{}) (qqRsp *SendCashRedResponse, err error) {
@@ -42,6 +43,7 @@ func (q *Client) SendCashRed(ctx context.Context, bm gopay.BodyMap, certFilePath
 }
 
 // DownloadRedListFile 对账单下载
+//
 //	注意：data类型为int类型，例如：date=20200909，2020年9月9日
 //	文档：https://qpay.qq.com/buss/wiki/221/1224
 func (q *Client) DownloadRedListFile(ctx context.Context, bm gopay.BodyMap) (qqRsp string, err error) {
@@ -57,6 +59,7 @@ func (q *Client) DownloadRedListFile(ctx context.Context, bm gopay.BodyMap) (qqR
 }
 
 // QueryRedInfo 查询红包详情
+//
 //	文档：https://qpay.qq.com/buss/wiki/221/2174
 func (q *Client) QueryRedInfo(ctx context.Context, bm gopay.BodyMap) (qqRsp *QueryRedInfoResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str", "listid")

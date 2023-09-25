@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 服务人员注册API
+//
 //	注意：入参加密字段数据加密：client.V3EncryptText()
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_4_1.shtml
@@ -37,6 +38,7 @@ func (c *ClientV3) V3SmartGuideReg(ctx context.Context, bm gopay.BodyMap) (wxRsp
 }
 
 // 服务人员分配API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_4_2.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_4_2.shtml
@@ -62,6 +64,7 @@ func (c *ClientV3) V3SmartGuideAssign(ctx context.Context, guideId, tradeNo stri
 }
 
 // 服务人员查询API
+//
 //	注意：入参加密字段数据加密：client.V3EncryptText()，返回参数加密字段解密：client.V3DecryptText()
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_4_3.shtml
@@ -93,6 +96,7 @@ func (c *ClientV3) V3SmartGuideQuery(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 服务人员信息更新API
+//
 //	注意：入参加密字段数据加密：client.V3EncryptText()
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_4_4.shtml

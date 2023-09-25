@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 //	AppId	  string `json:"app_id"`	  //支付宝分配给开发者的应用ID
@@ -49,6 +49,7 @@ func (a *Client) SetLocation(name string) (client *Client) {
 // Deprecated
 // 推荐使用 client.SetCertSnByContent() 或 client.SetCertSnByPath()
 // 设置 应用公钥证书SN
+//
 //	appCertSN：应用公钥证书SN，通过 alipay.GetCertSN() 获取
 func (a *Client) SetAppCertSN(appCertSN string) (client *Client) {
 	a.AppCertSN = appCertSN
@@ -58,6 +59,7 @@ func (a *Client) SetAppCertSN(appCertSN string) (client *Client) {
 // Deprecated
 // 推荐使用 client.SetCertSnByContent() 或 client.SetCertSnByPath()
 // 设置 支付宝公钥证书SN
+//
 //	aliPayPublicCertSN：支付宝公钥证书SN，通过 alipay.GetCertSN() 获取
 func (a *Client) SetAliPayPublicCertSN(aliPayPublicCertSN string) (client *Client) {
 	a.AliPayPublicCertSN = aliPayPublicCertSN
@@ -67,6 +69,7 @@ func (a *Client) SetAliPayPublicCertSN(aliPayPublicCertSN string) (client *Clien
 // Deprecated
 // 推荐使用 client.SetCertSnByContent() 或 client.SetCertSnByPath()
 // 设置 支付宝CA根证书SN
+//
 //	aliPayRootCertSN：支付宝CA根证书SN，通过 alipay.GetRootCertSN() 获取
 func (a *Client) SetAliPayRootCertSN(aliPayRootCertSN string) (client *Client) {
 	a.AliPayRootCertSN = aliPayRootCertSN
@@ -74,6 +77,7 @@ func (a *Client) SetAliPayRootCertSN(aliPayRootCertSN string) (client *Client) {
 }
 
 // 通过应用公钥证书路径设置 app_cert_sn、alipay_root_cert_sn、alipay_cert_sn
+//
 //	appCertPath：应用公钥证书路径
 //	aliPayRootCertPath：支付宝根证书文件路径
 //	aliPayPublicCertPath：支付宝公钥证书文件路径
@@ -97,6 +101,7 @@ func (a *Client) SetCertSnByPath(appCertPath, aliPayRootCertPath, aliPayPublicCe
 }
 
 // 通过应用公钥证书内容设置 app_cert_sn、alipay_root_cert_sn、alipay_cert_sn
+//
 //	appCertContent：应用公钥证书文件内容
 //	aliPayRootCertContent：支付宝根证书文件内容
 //	aliPayPublicCertContent：支付宝公钥证书文件内容

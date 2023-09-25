@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 点金计划管理API
+//
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_5_1.shtml
 func (c *ClientV3) V3GoldPlanManage(ctx context.Context, bm gopay.BodyMap) (wxRsp *GoldPlanManageRsp, err error) {
@@ -35,6 +36,7 @@ func (c *ClientV3) V3GoldPlanManage(ctx context.Context, bm gopay.BodyMap) (wxRs
 }
 
 // 商家小票管理API
+//
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_5_2.shtml
 func (c *ClientV3) V3GoldPlanBillManage(ctx context.Context, bm gopay.BodyMap) (wxRsp *GoldPlanManageRsp, err error) {
@@ -60,6 +62,7 @@ func (c *ClientV3) V3GoldPlanBillManage(ctx context.Context, bm gopay.BodyMap) (
 }
 
 // 同业过滤标签管理API
+//
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_5_3.shtml
 func (c *ClientV3) V3GoldPlanFilterManage(ctx context.Context, bm gopay.BodyMap) (wxRsp *EmptyRsp, err error) {
@@ -81,6 +84,7 @@ func (c *ClientV3) V3GoldPlanFilterManage(ctx context.Context, bm gopay.BodyMap)
 }
 
 // 开通广告展示API
+//
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_5_4.shtml
 func (c *ClientV3) V3GoldPlanOpenAdShow(ctx context.Context, bm gopay.BodyMap) (wxRsp *EmptyRsp, err error) {
@@ -102,6 +106,7 @@ func (c *ClientV3) V3GoldPlanOpenAdShow(ctx context.Context, bm gopay.BodyMap) (
 }
 
 // 关闭广告展示API
+//
 //	Code = 0 is success
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_5_5.shtml
 func (c *ClientV3) V3GoldPlanCloseAdShow(ctx context.Context, bm gopay.BodyMap) (wxRsp *EmptyRsp, err error) {

@@ -5,10 +5,11 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 订单附加信息提交（正式环境）
+//
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/external/declarecustom.php?chapter=18_1
 func (w *Client) CustomsDeclareOrder(ctx context.Context, bm gopay.BodyMap) (wxRsp *CustomsDeclareOrderResponse, err error) {
 	err = bm.CheckEmptyError("out_trade_no", "transaction_id", "customs", "mch_customs_no")
@@ -28,6 +29,7 @@ func (w *Client) CustomsDeclareOrder(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 订单附加信息查询（正式环境）
+//
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/external/declarecustom.php?chapter=18_2
 func (w *Client) CustomsDeclareQuery(ctx context.Context, bm gopay.BodyMap) (wxRsp *CustomsDeclareQueryResponse, err error) {
 	err = bm.CheckEmptyError("customs")
@@ -47,6 +49,7 @@ func (w *Client) CustomsDeclareQuery(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 订单附加信息重推（正式环境）
+//
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/external/declarecustom.php?chapter=18_4&index=3
 func (w *Client) CustomsReDeclareOrder(ctx context.Context, bm gopay.BodyMap) (wxRsp *CustomsReDeclareOrderResponse, err error) {
 	err = bm.CheckEmptyError("customs", "mch_customs_no")

@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
-	"github.com/go-pay/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
 )
 
 // ClientV3 微信支付 V3
@@ -28,8 +28,9 @@ type ClientV3 struct {
 }
 
 // NewClientV3 初始化微信客户端 V3
+//
 //	mchid：商户ID 或者服务商模式的 sp_mchid
-// 	serialNo：商户API证书的证书序列号
+//	serialNo：商户API证书的证书序列号
 //	apiV3Key：APIv3Key，商户平台获取
 //	privateKey：商户API证书下载后，私钥 apiclient_key.pem 读取后的字符串内容
 func NewClientV3(mchid, serialNo, apiV3Key, privateKey string) (client *ClientV3, err error) {
@@ -52,6 +53,7 @@ func NewClientV3(mchid, serialNo, apiV3Key, privateKey string) (client *ClientV3
 }
 
 // AutoVerifySign 开启请求完自动验签功能（默认不开启，推荐开启）
+//
 //	开启自动验签，自动开启每12小时一次轮询，请求最新证书操作
 func (c *ClientV3) AutoVerifySign() (err error) {
 	wxPk, wxSerialNo, err := c.GetAndSelectNewestCert()

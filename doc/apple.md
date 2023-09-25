@@ -13,8 +13,8 @@
 
 ```go
 import (
-    "github.com/go-pay/gopay/apple"
-    "github.com/go-pay/gopay/pkg/xlog"
+    "github.com/Adamxu0120/gopay/apple"
+    "github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 pwd := ""
@@ -44,8 +44,8 @@ if rsp.Receipt != nil {
 
 ```go
 import (
-    "github.com/go-pay/gopay/apple"
-    "github.com/go-pay/gopay/pkg/xlog"
+    "github.com/Adamxu0120/gopay/apple"
+    "github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 // decode signedPayload

@@ -7,10 +7,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 创建订单（Create order）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_create
 func (c *Client) CreateOrder(ctx context.Context, bm gopay.BodyMap) (ppRsp *CreateOrderRsp, err error) {
@@ -36,6 +37,7 @@ func (c *Client) CreateOrder(ctx context.Context, bm gopay.BodyMap) (ppRsp *Crea
 }
 
 // 更新订单（Update order）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_patch
 func (c *Client) UpdateOrder(ctx context.Context, orderId string, patchs []*Patch) (ppRsp *EmptyRsp, err error) {
@@ -58,6 +60,7 @@ func (c *Client) UpdateOrder(ctx context.Context, orderId string, patchs []*Patc
 }
 
 // 订单详情（Show order details）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_get
 func (c *Client) OrderDetail(ctx context.Context, orderId string, bm gopay.BodyMap) (ppRsp *OrderDetailRsp, err error) {
@@ -84,6 +87,7 @@ func (c *Client) OrderDetail(ctx context.Context, orderId string, bm gopay.BodyM
 }
 
 // 订单支付授权（Authorize payment for order）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_authorize
 func (c *Client) OrderAuthorize(ctx context.Context, orderId string, bm gopay.BodyMap) (ppRsp *OrderAuthorizeRsp, err error) {
@@ -110,6 +114,7 @@ func (c *Client) OrderAuthorize(ctx context.Context, orderId string, bm gopay.Bo
 }
 
 // 订单支付捕获（Capture payment for order）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_capture
 func (c *Client) OrderCapture(ctx context.Context, orderId string, bm gopay.BodyMap) (ppRsp *OrderCaptureRsp, err error) {
@@ -136,6 +141,7 @@ func (c *Client) OrderCapture(ctx context.Context, orderId string, bm gopay.Body
 }
 
 // 订单支付确认（Confirm the Order）
+//
 //	Code = 0 is success
 //	文档：https://developer.paypal.com/docs/api/orders/v2/#orders_confirm
 func (c *Client) OrderConfirm(ctx context.Context, orderId string, bm gopay.BodyMap) (ppRsp *OrderConfirmRsp, err error) {

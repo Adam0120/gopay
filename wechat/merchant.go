@@ -7,13 +7,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 // 企业付款（企业向微信用户个人付款）
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此方法未支持沙箱环境，默认正式环境，转账请慎重
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=14_2
@@ -60,6 +61,7 @@ func (w *Client) Transfer(ctx context.Context, bm gopay.BodyMap) (wxRsp *Transfe
 }
 
 // 查询企业付款
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此方法未支持沙箱环境，默认正式环境
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=14_3
@@ -106,6 +108,7 @@ func (w *Client) GetTransferInfo(ctx context.Context, bm gopay.BodyMap) (wxRsp *
 }
 
 // 企业付款到银行卡API（正式）
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此方法未支持沙箱环境，默认正式环境，转账请慎重
 //	注意：enc_bank_no、enc_true_name 两参数，开发者需自行获取RSA公钥，加密后再 Set 到 BodyMap，参考 client_test.go 里的 TestClient_PayBank() 方法
@@ -154,6 +157,7 @@ func (w *Client) PayBank(ctx context.Context, bm gopay.BodyMap) (wxRsp *PayBankR
 }
 
 // 查询企业付款到银行卡API（正式）
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=24_3
 func (w *Client) QueryBank(ctx context.Context, bm gopay.BodyMap) (wxRsp *QueryBankResponse, err error) {
@@ -198,6 +202,7 @@ func (w *Client) QueryBank(ctx context.Context, bm gopay.BodyMap) (wxRsp *QueryB
 }
 
 // 获取RSA加密公钥API（正式）
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	文档地址：https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=24_7&index=4
 func (w *Client) GetRSAPublicKey(ctx context.Context, bm gopay.BodyMap) (wxRsp *RSAPublicKeyResponse, err error) {
@@ -237,6 +242,7 @@ func (w *Client) GetRSAPublicKey(ctx context.Context, bm gopay.BodyMap) (wxRsp *
 }
 
 // 请求单次分账
+//
 //	单次分账请求按照传入的分账接收方账号和资金进行分账，
 //	同时会将订单剩余的待分账金额解冻给本商户。
 //	故操作成功后，订单不能再进行分账，也不能进行分账完结。
@@ -247,6 +253,7 @@ func (w *Client) ProfitSharing(ctx context.Context, bm gopay.BodyMap) (wxRsp *Pr
 }
 
 // 请求多次分账
+//
 //	微信订单支付成功后，商户发起分账请求，将结算后的钱分到分账接收方。多次分账请求仅会按照传入的分账接收方进行分账，不会对剩余的金额进行任何操作。
 //	故操作成功后，在待分账金额不等于零时，订单依旧能够再次进行分账。
 //	多次分账，可以将本商户作为分账接收方直接传入，实现释放资金给本商户的功能
@@ -281,6 +288,7 @@ func (w *Client) profitSharing(ctx context.Context, bm gopay.BodyMap, uri string
 }
 
 // 查询分账结果
+//
 //	发起分账请求后，可调用此接口查询分账结果；发起分账完结请求后，可调用此接口查询分账完结的执行结果。
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=27_2&index=3
 func (w *Client) ProfitSharingQuery(ctx context.Context, bm gopay.BodyMap) (wxRsp *ProfitSharingQueryResponse, err error) {
@@ -307,6 +315,7 @@ func (w *Client) ProfitSharingQuery(ctx context.Context, bm gopay.BodyMap) (wxRs
 }
 
 // 添加分账接收方
+//
 //	商户发起添加分账接收方请求，后续可通过发起分账请求将结算后的钱分到该分账接收方。
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=27_3&index=4
 func (w *Client) ProfitSharingAddReceiver(ctx context.Context, bm gopay.BodyMap) (wxRsp *ProfitSharingAddReceiverResponse, err error) {
@@ -328,6 +337,7 @@ func (w *Client) ProfitSharingAddReceiver(ctx context.Context, bm gopay.BodyMap)
 }
 
 // 删除分账接收方
+//
 //	商户发起删除分账接收方请求，删除后不支持将结算后的钱分到该分账接收方
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=27_4&index=5
 func (w *Client) ProfitSharingRemoveReceiver(ctx context.Context, bm gopay.BodyMap) (wxRsp *ProfitSharingAddReceiverResponse, err error) {
@@ -349,6 +359,7 @@ func (w *Client) ProfitSharingRemoveReceiver(ctx context.Context, bm gopay.BodyM
 }
 
 // 完结分账
+//
 //	1、不需要进行分账的订单，可直接调用本接口将订单的金额全部解冻给本商户
 //	2、调用多次分账接口后，需要解冻剩余资金时，调用本接口将剩余的分账金额全部解冻给特约商户
 //	3、已调用请求单次分账后，剩余待分账金额为零，不需要再调用此接口。
@@ -377,6 +388,7 @@ func (w *Client) ProfitSharingFinish(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 分账回退
+//
 //	对订单进行退款时，如果订单已经分账，可以先调用此接口将指定的金额从分账接收方（仅限商户类型的分账接收方）回退给本商户，然后再退款。
 //	回退以原分账请求为依据，可以对分给分账接收方的金额进行多次回退，只要满足累计回退不超过该请求中分给接收方的金额。
 //	此接口采用同步处理模式，即在接收到商户请求后，会实时返回处理结果
@@ -410,6 +422,7 @@ func (w *Client) ProfitSharingReturn(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 回退结果查询
+//
 //	商户需要核实回退结果，可调用此接口查询回退结果。
 //	如果分账回退接口返回状态为处理中，可调用此接口查询回退结果
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=27_8&index=8

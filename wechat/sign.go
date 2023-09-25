@@ -13,11 +13,12 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // VerifySign 微信同步返回参数验签或异步通知参数验签
+//
 //	ApiKey：API秘钥值
 //	signType：签名类型（调用API方法时填写的类型）
 //	bean：微信同步返回的结构体 wxRsp 或 异步通知解析的结构体 notifyReq，推荐通 BodyMap 验签
@@ -49,6 +50,7 @@ func VerifySign(apiKey, signType string, bean interface{}) (ok bool, err error) 
 }
 
 // GetMiniPaySign JSAPI支付，统一下单获取支付参数后，再次计算出小程序用的paySign
+//
 //	appId：APPID
 //	nonceStr：随即字符串
 //	packages：统一下单成功后拼接得到的值
@@ -84,12 +86,14 @@ func GetMiniPaySign(appId, nonceStr, packages, signType, timeStamp, apiKey strin
 }
 
 // Deprecated
+//
 //	微信内H5支付官方文档：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6
 func GetH5PaySign(appId, nonceStr, packages, signType, timeStamp, apiKey string) (paySign string) {
 	return GetJsapiPaySign(appId, nonceStr, packages, signType, timeStamp, apiKey)
 }
 
 // GetJsapiPaySign JSAPI调起支付，统一下单获取支付参数后，再次计算出微信内H5支付需要用的paySign
+//
 //	appId：APPID
 //	nonceStr：随即字符串
 //	packages：统一下单成功后拼接得到的值
@@ -125,6 +129,7 @@ func GetJsapiPaySign(appId, nonceStr, packages, signType, timeStamp, apiKey stri
 }
 
 // GetAppPaySign APP支付，统一下单获取支付参数后，再次计算APP支付所需要的的sign
+//
 //	appId：APPID
 //	partnerid：partnerid
 //	nonceStr：随即字符串
@@ -163,6 +168,7 @@ func GetAppPaySign(appid, partnerid, noncestr, prepayid, signType, timestamp, ap
 
 // Deprecated
 // GetParamSign 获取微信支付所需参数里的Sign值（通过支付参数计算Sign值）
+//
 //	注意：BodyMap中如无 sign_type 参数，默认赋值 sign_type 为 MD5
 //	appId：应用ID
 //	mchId：商户ID
@@ -191,6 +197,7 @@ func GetParamSign(appId, mchId, apiKey string, bm gopay.BodyMap) (sign string) {
 
 // Deprecated
 // GetSanBoxParamSign 获取微信支付沙箱环境所需参数里的Sign值（通过支付参数计算Sign值）
+//
 //	注意：沙箱环境默认 sign_type 为 MD5
 //	appId：应用ID
 //	mchId：商户ID

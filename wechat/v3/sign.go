@@ -11,13 +11,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xlog"
-	"github.com/go-pay/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
 )
 
 // Deprecated
+//
 //	推荐使用 wechat.V3VerifySignByPK()
 func V3VerifySign(timestamp, nonce, signBody, sign, wxPubKeyContent string) (err error) {
 	publicKey, err := xpem.DecodePublicKey([]byte(wxPubKeyContent))
@@ -36,6 +37,7 @@ func V3VerifySign(timestamp, nonce, signBody, sign, wxPubKeyContent string) (err
 }
 
 // 微信V3 版本验签（同步/异步）
+//
 //	wxPublicKey：微信平台证书公钥内容，通过 client.WxPublicKey() 获取
 func V3VerifySignByPK(timestamp, nonce, signBody, sign string, wxPublicKey *rsa.PublicKey) (err error) {
 	str := timestamp + "\n" + nonce + "\n" + signBody + "\n"
@@ -50,6 +52,7 @@ func V3VerifySignByPK(timestamp, nonce, signBody, sign string, wxPublicKey *rsa.
 }
 
 // PaySignOfJSAPI 获取 JSAPI paySign
+//
 //	文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_4.shtml
 func (c *ClientV3) PaySignOfJSAPI(appid, prepayid string) (jsapi *JSAPIPayParams, err error) {
 	ts := util.Int642String(time.Now().Unix())
@@ -74,6 +77,7 @@ func (c *ClientV3) PaySignOfJSAPI(appid, prepayid string) (jsapi *JSAPIPayParams
 }
 
 // PaySignOfApp 获取 App sign
+//
 //	文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_4.shtml
 func (c *ClientV3) PaySignOfApp(appid, prepayid string) (app *AppPayParams, err error) {
 	ts := util.Int642String(time.Now().Unix())
@@ -98,6 +102,7 @@ func (c *ClientV3) PaySignOfApp(appid, prepayid string) (app *AppPayParams, err 
 }
 
 // PaySignOfApplet 获取 小程序 paySign
+//
 //	文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_5_4.shtml
 func (c *ClientV3) PaySignOfApplet(appid, prepayid string) (applet *AppletParams, err error) {
 	jsapi, err := c.PaySignOfJSAPI(appid, prepayid)

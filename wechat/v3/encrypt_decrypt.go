@@ -9,10 +9,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/aes"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/aes"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
 )
 
 // 敏感信息加密
@@ -38,6 +38,7 @@ func (c *ClientV3) V3DecryptText(cipherText string) (text string, err error) {
 }
 
 // 敏感参数信息加密
+//
 //	wxPublicKeyContent：微信平台证书内容
 func V3EncryptText(text string, wxPublicKeyContent []byte) (cipherText string, err error) {
 	publicKey, err := xpem.DecodePublicKey(wxPublicKeyContent)
@@ -52,6 +53,7 @@ func V3EncryptText(text string, wxPublicKeyContent []byte) (cipherText string, e
 }
 
 // 敏感参数信息解密
+//
 //	privateKeyContent：私钥 apiclient_key.pem 读取后的字符串内容
 func V3DecryptText(cipherText string, privateKeyContent []byte) (text string, err error) {
 	privateKey, err := xpem.DecodePrivateKey(privateKeyContent)

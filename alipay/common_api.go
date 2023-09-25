@@ -13,12 +13,12 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/go-pay/gopay"
-	xaes "github.com/go-pay/gopay/pkg/aes"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xpem"
-	"github.com/go-pay/gopay/pkg/xrsa"
+	"github.com/Adamxu0120/gopay"
+	xaes "github.com/Adamxu0120/gopay/pkg/aes"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xpem"
+	"github.com/Adamxu0120/gopay/pkg/xrsa"
 )
 
 // 格式化请求URL参数
@@ -31,6 +31,7 @@ func FormatURLParam(body gopay.BodyMap) (urlParam string) {
 }
 
 // DecryptOpenDataToStruct 解密支付宝开放数据到 结构体
+//
 //	encryptedData:包括敏感数据在内的完整用户信息的加密数据
 //	secretKey:AES密钥，支付宝管理平台配置
 //	beanPtr:需要解析到的结构体指针
@@ -74,6 +75,7 @@ func DecryptOpenDataToStruct(encryptedData, secretKey string, beanPtr interface{
 }
 
 // DecryptOpenDataToBodyMap 解密支付宝开放数据到 BodyMap
+//
 //	encryptedData:包括敏感数据在内的完整用户信息的加密数据
 //	secretKey:AES密钥，支付宝管理平台配置
 //	文档：https://opendocs.alipay.com/mini/introduce/aes
@@ -110,6 +112,7 @@ func DecryptOpenDataToBodyMap(encryptedData, secretKey string) (bm gopay.BodyMap
 }
 
 // SystemOauthToken 换取授权访问令牌（默认使用utf-8，RSA2）
+//
 //	appId：应用ID
 //	privateKey：应用私钥
 //	grantType：值为 authorization_code 时，代表用code换取；值为 refresh_token 时，代表用refresh_token换取，传空默认code换取
@@ -180,6 +183,7 @@ func systemOauthToken(ctx context.Context, appId string, privateKey *rsa.Private
 }
 
 // monitor.heartbeat.syn(验签接口)
+//
 //	appId：应用ID
 //	privateKey：应用私钥，支持PKCS1和PKCS8
 //	signType：签名方式 alipay.RSA 或 alipay.RSA2，默认 RSA2

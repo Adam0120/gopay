@@ -16,11 +16,12 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // ParseNotifyToBodyMap 解析QQ支付异步通知的结果到BodyMap
+//
 //	req：*http.Request
 //	返回参数bm：Notify请求的参数
 //	返回参数err：错误信息
@@ -47,6 +48,7 @@ func ParseNotify(req *http.Request) (notifyReq *NotifyRequest, err error) {
 }
 
 // VerifySign QQ同步返回参数验签或异步通知参数验签
+//
 //	ApiKey：API秘钥值
 //	signType：签名类型（调用API方法时填写的类型）
 //	bean：微信同步返回的结构体 qqRsp 或 异步通知解析的结构体 notifyReq

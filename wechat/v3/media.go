@@ -6,11 +6,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // 图片上传API
+//
 //	注意：图片不能超过2MB
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter2_1_1.shtml
@@ -45,6 +46,7 @@ func (c *ClientV3) V3MediaUploadImage(ctx context.Context, fileName, fileSha256 
 }
 
 // 视频上传API
+//
 //	注意：媒体视频只支持avi、wmv、mpeg、mp4、mov、mkv、flv、f4v、m4v、rmvb格式，文件大小不能超过5M。
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter2_1_2.shtml

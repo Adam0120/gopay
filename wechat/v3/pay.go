@@ -7,11 +7,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // APP下单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_1.shtml
 func (c *ClientV3) V3TransactionApp(ctx context.Context, bm gopay.BodyMap) (wxRsp *PrepayRsp, err error) {
@@ -40,6 +41,7 @@ func (c *ClientV3) V3TransactionApp(ctx context.Context, bm gopay.BodyMap) (wxRs
 }
 
 // JSAPI/小程序下单API
+//
 //	Code = 0 is success
 //	商户JSAPI文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_1.shtml
 //	商户小程序文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_5_1.shtml
@@ -69,6 +71,7 @@ func (c *ClientV3) V3TransactionJsapi(ctx context.Context, bm gopay.BodyMap) (wx
 }
 
 // Native下单API
+//
 //	Code = 0 is success
 //	文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_4_1.shtml
 func (c *ClientV3) V3TransactionNative(ctx context.Context, bm gopay.BodyMap) (wxRsp *NativeRsp, err error) {
@@ -97,6 +100,7 @@ func (c *ClientV3) V3TransactionNative(ctx context.Context, bm gopay.BodyMap) (w
 }
 
 // H5下单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_3_1.shtml
 func (c *ClientV3) V3TransactionH5(ctx context.Context, bm gopay.BodyMap) (wxRsp *H5Rsp, err error) {
@@ -125,6 +129,7 @@ func (c *ClientV3) V3TransactionH5(ctx context.Context, bm gopay.BodyMap) (wxRsp
 }
 
 // 查询订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_2.shtml
 func (c *ClientV3) V3TransactionQueryOrder(ctx context.Context, orderNoType OrderNoType, orderNo string) (wxRsp *QueryOrderRsp, err error) {
@@ -160,6 +165,7 @@ func (c *ClientV3) V3TransactionQueryOrder(ctx context.Context, orderNoType Orde
 }
 
 // 关闭订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_3.shtml
 func (c *ClientV3) V3TransactionCloseOrder(ctx context.Context, tradeNo string) (wxRsp *CloseOrderRsp, err error) {

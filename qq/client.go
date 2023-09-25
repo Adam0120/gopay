@@ -9,10 +9,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 type Client struct {
@@ -25,6 +25,7 @@ type Client struct {
 }
 
 // 初始化QQ客户端（正式环境）
+//
 //	mchId：商户ID
 //	ApiKey：API秘钥值
 func NewClient(mchId, apiKey string) (client *Client) {
@@ -36,6 +37,7 @@ func NewClient(mchId, apiKey string) (client *Client) {
 }
 
 // 向QQ发送Post请求，对于本库未提供的QQ API，可自行实现，通过此方法发送请求
+//
 //	bm：请求参数的BodyMap
 //	url：完整url地址，例如：https://qpay.qq.com/cgi-bin/pay/qpay_unified_order.cgi
 //	tlsConfig：tls配置，如无需证书请求，传nil
@@ -44,6 +46,7 @@ func (q *Client) PostQQAPISelf(ctx context.Context, bm gopay.BodyMap, url string
 }
 
 // 提交付款码支付
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/1/1122
 func (q *Client) MicroPay(ctx context.Context, bm gopay.BodyMap) (qqRsp *MicroPayResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str", "body", "out_trade_no", "total_fee", "spbill_create_ip", "device_info", "auth_code")
@@ -63,6 +66,7 @@ func (q *Client) MicroPay(ctx context.Context, bm gopay.BodyMap) (qqRsp *MicroPa
 }
 
 // 撤销订单
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/1/1125
 func (q *Client) Reverse(ctx context.Context, bm gopay.BodyMap) (qqRsp *ReverseResponse, err error) {
 	err = bm.CheckEmptyError("sub_mch_id", "nonce_str", "out_trade_no", "op_user_id", "op_user_passwd")
@@ -81,6 +85,7 @@ func (q *Client) Reverse(ctx context.Context, bm gopay.BodyMap) (qqRsp *ReverseR
 }
 
 // 统一下单
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1203
 func (q *Client) UnifiedOrder(ctx context.Context, bm gopay.BodyMap) (qqRsp *UnifiedOrderResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str", "body", "out_trade_no", "total_fee", "spbill_create_ip", "trade_type", "notify_url")
@@ -99,6 +104,7 @@ func (q *Client) UnifiedOrder(ctx context.Context, bm gopay.BodyMap) (qqRsp *Uni
 }
 
 // 订单查询
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1205
 func (q *Client) OrderQuery(ctx context.Context, bm gopay.BodyMap) (qqRsp *OrderQueryResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str")
@@ -120,6 +126,7 @@ func (q *Client) OrderQuery(ctx context.Context, bm gopay.BodyMap) (qqRsp *Order
 }
 
 // 关闭订单
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1206
 func (q *Client) CloseOrder(ctx context.Context, bm gopay.BodyMap) (qqRsp *CloseOrderResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str", "out_trade_no")
@@ -138,6 +145,7 @@ func (q *Client) CloseOrder(ctx context.Context, bm gopay.BodyMap) (qqRsp *Close
 }
 
 // 申请退款
+//
 //	注意：如已使用client.AddCertFilePath()添加过证书，参数certFilePath、keyFilePath、pkcs12FilePath全传空字符串 nil，否则，3证书Path均不可空
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1207
 func (q *Client) Refund(ctx context.Context, bm gopay.BodyMap, certFilePath, keyFilePath, pkcs12FilePath interface{}) (qqRsp *RefundResponse, err error) {
@@ -167,6 +175,7 @@ func (q *Client) Refund(ctx context.Context, bm gopay.BodyMap, certFilePath, key
 }
 
 // 退款查询
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1208
 func (q *Client) RefundQuery(ctx context.Context, bm gopay.BodyMap) (qqRsp *RefundQueryResponse, err error) {
 	err = bm.CheckEmptyError("nonce_str")
@@ -188,6 +197,7 @@ func (q *Client) RefundQuery(ctx context.Context, bm gopay.BodyMap) (qqRsp *Refu
 }
 
 // 交易账单
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/1209
 func (q *Client) StatementDown(ctx context.Context, bm gopay.BodyMap) (qqRsp string, err error) {
 	err = bm.CheckEmptyError("nonce_str", "bill_date", "bill_type")
@@ -206,6 +216,7 @@ func (q *Client) StatementDown(ctx context.Context, bm gopay.BodyMap) (qqRsp str
 }
 
 // 资金账单
+//
 //	文档地址：https://qpay.qq.com/buss/wiki/38/3089
 func (q *Client) AccRoll(ctx context.Context, bm gopay.BodyMap) (qqRsp string, err error) {
 	err = bm.CheckEmptyError("nonce_str", "bill_date", "acc_type")

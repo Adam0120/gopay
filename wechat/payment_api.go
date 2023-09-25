@@ -20,13 +20,14 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/go-pay/gopay"
-	xaes "github.com/go-pay/gopay/pkg/aes"
-	"github.com/go-pay/gopay/pkg/util"
-	"github.com/go-pay/gopay/pkg/xhttp"
+	"github.com/Adamxu0120/gopay"
+	xaes "github.com/Adamxu0120/gopay/pkg/aes"
+	"github.com/Adamxu0120/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay/pkg/xhttp"
 )
 
 // ParseNotifyToBodyMap 解析微信支付异步通知的结果到BodyMap（推荐）
+//
 //	req：*http.Request
 //	返回参数bm：Notify请求的参数
 //	返回参数err：错误信息
@@ -56,6 +57,7 @@ func ParseNotify(req *http.Request) (notifyReq *NotifyRequest, err error) {
 }
 
 // ParseRefundNotify 解析微信退款异步通知的参数
+//
 //	req：*http.Request
 //	返回参数notifyReq：Notify请求的参数
 //	返回参数err：错误信息
@@ -70,6 +72,7 @@ func ParseRefundNotify(req *http.Request) (notifyReq *RefundNotifyRequest, err e
 }
 
 // DecryptRefundNotifyReqInfo 解密微信退款异步通知的加密数据
+//
 //	reqInfo：gopay.ParseRefundNotify() 方法获取的加密数据 req_info
 //	apiKey：API秘钥值
 //	返回参数refundNotify：RefundNotify请求的加密数据
@@ -143,6 +146,7 @@ func (w *NotifyResponse) ToXmlString() (xmlStr string) {
 }
 
 // GetOpenIdByAuthCode 授权码查询openid(AccessToken:157字符)
+//
 //	appId:APPID
 //	mchId:商户号
 //	ApiKey:apiKey

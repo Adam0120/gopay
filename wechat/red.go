@@ -10,11 +10,12 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/go-pay/gopay"
-	"github.com/go-pay/gopay/pkg/util"
+	"github.com/Adamxu0120/gopay"
+	"github.com/Adamxu0120/gopay/pkg/util"
 )
 
 // 发放现金红包
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此处参数中的 wxappid 需要单独传参，不复用 NewClient 时的 appid，total_num = 1
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_4&index=3
@@ -51,6 +52,7 @@ func (w *Client) SendCashRed(ctx context.Context, bm gopay.BodyMap) (wxRsp *Send
 }
 
 // 发放现金裂变红包
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此处参数中的 wxappid 需要单独传参，不复用 NewClient 时的 appid，amt_type = ALL_RAND
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_5&index=4
@@ -88,6 +90,7 @@ func (w *Client) SendGroupCashRed(ctx context.Context, bm gopay.BodyMap) (wxRsp 
 }
 
 // 发放小程序红包
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此处参数中的 wxappid 需要单独传参，不复用 NewClient 时的 appid，total_num = 1，notify_way = MINI_PROGRAM_JSAPI
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=18_2&index=3
@@ -125,6 +128,7 @@ func (w *Client) SendAppletRed(ctx context.Context, bm gopay.BodyMap) (wxRsp *Se
 }
 
 // 查询红包记录
+//
 //	注意：请在初始化client时，调用 client 添加证书的相关方法添加证书
 //	注意：此处参数中的 appid 需要单独传参，不复用 NewClient 时的 appid，bill_type = MCHT
 //	微信文档：https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_6&index=5

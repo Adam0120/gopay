@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 创建商家券
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_1.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_1.shtml
@@ -36,6 +37,7 @@ func (c *ClientV3) V3BusiFavorBatchCreate(ctx context.Context, bm gopay.BodyMap)
 }
 
 // 查询商家券详情
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_2.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_2.shtml
@@ -63,6 +65,7 @@ func (c *ClientV3) V3BusiFavorBatchDetail(ctx context.Context, stockId string) (
 }
 
 // 核销用户券
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_3.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_3.shtml
@@ -89,6 +92,7 @@ func (c *ClientV3) V3BusiFavorUse(ctx context.Context, bm gopay.BodyMap) (wxRsp 
 }
 
 // 根据过滤条件查询用户券
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_4.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_4.shtml
@@ -116,6 +120,7 @@ func (c *ClientV3) V3BusiFavorUserCoupons(ctx context.Context, openid string, bm
 }
 
 // 查询用户单张券详情
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_5.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_5.shtml
@@ -143,6 +148,7 @@ func (c *ClientV3) V3BusiFavorUserCouponDetail(ctx context.Context, openid, coup
 }
 
 // 上传预存code
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_6.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_6.shtml
@@ -170,6 +176,7 @@ func (c *ClientV3) V3BusiFavorCodeUpload(ctx context.Context, stockId string, bm
 }
 
 // 设置商家券事件通知地址
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_7.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_7.shtml
@@ -196,6 +203,7 @@ func (c *ClientV3) V3BusiFavorCallbackUrlSet(ctx context.Context, bm gopay.BodyM
 }
 
 // 查询商家券事件通知地址
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_8.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_8.shtml
@@ -223,6 +231,7 @@ func (c *ClientV3) V3BusiFavorCallbackUrl(ctx context.Context, mchid string) (wx
 }
 
 // 关联订单信息
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_9.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_9.shtml
@@ -249,6 +258,7 @@ func (c *ClientV3) V3BusiFavorAssociate(ctx context.Context, bm gopay.BodyMap) (
 }
 
 // 取消关联订单信息
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_10.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_10.shtml
@@ -275,6 +285,7 @@ func (c *ClientV3) V3BusiFavorDisassociate(ctx context.Context, bm gopay.BodyMap
 }
 
 // 修改批次预算
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_11.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_11.shtml
@@ -302,6 +313,7 @@ func (c *ClientV3) V3BusiFavorBatchUpdate(ctx context.Context, stockId string, b
 }
 
 // 修改商家券基本信息
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_12.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_12.shtml
@@ -325,6 +337,7 @@ func (c *ClientV3) V3BusiFavorInfoUpdate(ctx context.Context, stockId string, bm
 }
 
 // 发放消费卡
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_6_1.shtml
 func (c *ClientV3) V3BusiFavorSend(ctx context.Context, cardId string, bm gopay.BodyMap) (wxRsp *BusiFavorSendRsp, err error) {
@@ -351,6 +364,7 @@ func (c *ClientV3) V3BusiFavorSend(ctx context.Context, cardId string, bm gopay.
 }
 
 // 申请退券
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_13.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_13.shtml
@@ -377,6 +391,7 @@ func (c *ClientV3) V3BusiFavorReturn(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 使券失效
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_14.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_14.shtml
@@ -403,6 +418,7 @@ func (c *ClientV3) V3BusiFavorDeactivate(ctx context.Context, bm gopay.BodyMap) 
 }
 
 // 营销补差付款
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_16.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_16.shtml
@@ -429,6 +445,7 @@ func (c *ClientV3) V3BusiFavorSubsidyPay(ctx context.Context, bm gopay.BodyMap) 
 }
 
 // 查询营销补差付款单详情
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_18.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter9_2_18.shtml

@@ -7,10 +7,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 创单结单合并API
+//
 //	Code = 0 is success
 //	注意：限制条件：【免确认订单模式】，用户已授权状态下，可调用该接口。
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_1.shtml
@@ -37,6 +38,7 @@ func (c *ClientV3) V3ScoreDirectComplete(ctx context.Context, bm gopay.BodyMap) 
 }
 
 // 商户预授权API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_2.shtml
 func (c *ClientV3) V3ScorePermission(ctx context.Context, bm gopay.BodyMap) (wxRsp *ScorePermissionRsp, err error) {
@@ -62,6 +64,7 @@ func (c *ClientV3) V3ScorePermission(ctx context.Context, bm gopay.BodyMap) (wxR
 }
 
 // 查询用户授权记录（授权协议号）API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_3.shtml
 func (c *ClientV3) V3ScorePermissionQuery(ctx context.Context, authCode, serviceId string) (wxRsp *ScorePermissionQueryRsp, err error) {
@@ -88,6 +91,7 @@ func (c *ClientV3) V3ScorePermissionQuery(ctx context.Context, authCode, service
 }
 
 // 解除用户授权关系（授权协议号）API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_4.shtml
 func (c *ClientV3) V3ScorePermissionTerminate(ctx context.Context, authCode, serviceId, reason string) (wxRsp *EmptyRsp, err error) {
@@ -113,6 +117,7 @@ func (c *ClientV3) V3ScorePermissionTerminate(ctx context.Context, authCode, ser
 }
 
 // 查询用户授权记录（openid）API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_5.shtml
 func (c *ClientV3) V3ScorePermissionOpenidQuery(ctx context.Context, appid, openid, serviceid string) (wxRsp *ScorePermissionOpenidQueryRsp, err error) {
@@ -139,6 +144,7 @@ func (c *ClientV3) V3ScorePermissionOpenidQuery(ctx context.Context, appid, open
 }
 
 // 解除用户授权关系（openid）API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_6.shtml
 func (c *ClientV3) V3ScorePermissionOpenidTerminate(ctx context.Context, appid, openid, serviceid, reason string) (wxRsp *EmptyRsp, err error) {
@@ -165,6 +171,7 @@ func (c *ClientV3) V3ScorePermissionOpenidTerminate(ctx context.Context, appid, 
 }
 
 // 创建支付分订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_14.shtml
 func (c *ClientV3) V3ScoreOrderCreate(ctx context.Context, bm gopay.BodyMap) (wxRsp *ScoreOrderCreateRsp, err error) {
@@ -190,6 +197,7 @@ func (c *ClientV3) V3ScoreOrderCreate(ctx context.Context, bm gopay.BodyMap) (wx
 }
 
 // 查询支付分订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_15.shtml
 func (c *ClientV3) V3ScoreOrderQuery(ctx context.Context, orderNoType OrderNoType, appid, orderNo, serviceid string) (wxRsp *ScoreOrderQueryRsp, err error) {
@@ -224,6 +232,7 @@ func (c *ClientV3) V3ScoreOrderQuery(ctx context.Context, orderNoType OrderNoTyp
 }
 
 // 取消支付分订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_16.shtml
 func (c *ClientV3) V3ScoreOrderCancel(ctx context.Context, appid, tradeNo, serviceid, reason string) (wxRsp *ScoreOrderCancelRsp, err error) {
@@ -254,6 +263,7 @@ func (c *ClientV3) V3ScoreOrderCancel(ctx context.Context, appid, tradeNo, servi
 }
 
 // 修改订单金额API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_17.shtml
 func (c *ClientV3) V3ScoreOrderModify(ctx context.Context, tradeNo string, bm gopay.BodyMap) (wxRsp *ScoreOrderModifyRsp, err error) {
@@ -280,6 +290,7 @@ func (c *ClientV3) V3ScoreOrderModify(ctx context.Context, tradeNo string, bm go
 }
 
 // 完结支付分订单API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_18.shtml
 func (c *ClientV3) V3ScoreOrderComplete(ctx context.Context, tradeNo string, bm gopay.BodyMap) (wxRsp *ScoreOrderCompleteRsp, err error) {
@@ -306,6 +317,7 @@ func (c *ClientV3) V3ScoreOrderComplete(ctx context.Context, tradeNo string, bm 
 }
 
 // 商户发起催收扣款API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_19.shtml
 func (c *ClientV3) V3ScoreOrderPay(ctx context.Context, appid, tradeNo, serviceid string) (wxRsp *ScoreOrderPayRsp, err error) {
@@ -335,6 +347,7 @@ func (c *ClientV3) V3ScoreOrderPay(ctx context.Context, appid, tradeNo, servicei
 }
 
 // 同步服务订单信息API
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_20.shtml
 func (c *ClientV3) V3ScoreOrderSync(ctx context.Context, tradeNo string, bm gopay.BodyMap) (wxRsp *ScoreOrderSyncRsp, err error) {

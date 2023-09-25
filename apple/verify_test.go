@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/Adamxu0120/gopay/pkg/xlog"
 )
 
 var ctx = context.Background()

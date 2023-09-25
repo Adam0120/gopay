@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-pay/gopay"
+	"github.com/Adamxu0120/gopay"
 )
 
 // 商圈积分同步
+//
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_6_2.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_6_2.shtml
@@ -32,9 +33,10 @@ func (c *ClientV3) V3BusinessPointsSync(ctx context.Context, bm gopay.BodyMap) (
 }
 
 // 商圈积分授权查询
+//
 //	Code = 0 is success
-// 	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_6_4.shtml
-// 	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_6_4.shtml
+//	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter8_6_4.shtml
+//	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_6_4.shtml
 func (c *ClientV3) V3BusinessAuthPointsQuery(ctx context.Context, appid, openid string) (*BusinessAuthPointsQueryRsp, error) {
 	uri := fmt.Sprintf(v3BusinessAuthPointsQuery, openid) + "?appid=" + appid
 	authorization, err := c.authorization(MethodGet, uri, nil)
